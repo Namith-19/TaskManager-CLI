@@ -2,7 +2,8 @@ import pandas as pd
 try:
     taskdf=pd.read_csv("Tasks.csv")
 except :
-    print("There is no csv file")
+    taskdf=pd.DataFrame({"Date":[],"Task":[],"Status":[]})
+    taskdf.to_csv("Tasks.csv")
 
 def addTask():
     global taskdf
