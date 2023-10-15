@@ -34,6 +34,7 @@ def displayTasks():
 def markCompleted(indx):
     if(len(taskdf.index)!=0):
         taskdf["Status"].iloc[indx]="Completed"
+        print("Marked as completed")
     else:
         print("There are no tasks to mark as complete\n")
   
@@ -43,10 +44,12 @@ def deleteTask(indx):
         if(taskdf["Status"].loc[indx].lower()!="completed"):
             if(str(input("The task is not completed are you sure you want to delete(Y/N): ")).lower()=="y"):
                 taskdf.drop(index=indx,axis=0,inplace=True)
+                print("Task Deleted")
             else:
                 pass
         else:
                 taskdf.drop(index=indx,axis=0,inplace=True) 
+                print("Task Deleted")
     else:
         print("There are no tasks to delete\n")
     
